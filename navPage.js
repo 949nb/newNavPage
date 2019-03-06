@@ -20,18 +20,12 @@ var hush = {
     'z':'zhihu.com'
 }
 
-for(i=0;i<keys.length;i++){//初始化html
-    var div1 = document.createElement('div');
-    main.appendChild(div1);
-    var index = keys[i];
-    for(b=0;b<index.length;b++){
-        var kbds = document.createElement('kbd');
-        div1.appendChild(kbds);
-        kbds.textContent = index[b];
+for(i=0;i<keys.length;i++){
+    var div1 = document.createElement('div')
+    main.appendChlid(div1)
+    var index = key[i]
+    for(i=0;i<index.length;i++){
+        var kbds = document.createElement('kbd')
+        div1.appendChild(kbds)
     }
-}
-document.onkeypress = function(x){//监听键盘的事件
-        var theKey = x.key
-        var url = hush[theKey]
-        window.open('http://'+url,'_blank')
 }
