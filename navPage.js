@@ -5,27 +5,73 @@ var keys = {
     'length': 3
 }
 var hush = {
-    'q':'qq.com',
+    'q':'tencent.com',
     'w':'weibo.com',
     'e':'ele.me',
     'r':'renren.com',
-    't':'tianya.com',
+    't':'youtube.com',
     'y':'yy.com',
     'u':'uc.com',
-    'i':'imac.com',
+    'i':'apple.com',
     'o':'opera.com',
-    'p':'undefined',
-    'a':'acfun.tv',
+    'p':'jquery.com',
+    'a':'zh-t.airbnb.com',
     's':'sohu.com',
+    'b':'bilibili.com',
     'z':'zhihu.com'
 }
 
 for(i=0;i<keys.length;i++){
-    var div1 = document.createElement('div')
-    main.appendChlid(div1)
-    var index = key[i]
-    for(i=0;i<index.length;i++){
-        var kbds = document.createElement('kbd')
-        div1.appendChild(kbds)
+    var div1 = document.createElement('div');
+    main.appendChild(div1);
+    var index = keys[i];
+    for(b=0;b<index.length;b++){
+        var kbds = document.createElement('kbd');
+        div1.appendChild(kbds);
+        kbds.textContent = index[b];
+        var kbdClass = index[b]
+        kbds.classList.add(kbdClass)
+        var icoImg = document.createElement('img')
+        if(hush[kbdClass]){
+            kbds.appendChild(icoImg)
+            var ico = "http://"+hush[kbdClass]+"/favicon.ico"
+            icoImg.setAttribute('src',ico)
+        }else{
+            var circle = document.createElement('div')
+            kbds.appendChild(circle)
+            circle.classList.add('circle')
+        }
+        icoImg.onerror = function(xxxxxx){
+            console.log('失败的一匹')
+            xxxxxx.target.src = 'https://i.loli.net/2019/03/06/5c7fad9e635da.png'
+        }
+
+        
+        //设置了按钮的id
+        var buttons = document.createElement('button');
+        kbds.appendChild(buttons);
+        buttons.textContent = '编辑'
+        buttons.setAttribute('id',index[b])
+        //设置哈希
+        $(buttons).on('click',function(x){
+            key = (x['target']['id'])
+            let setUrl  = prompt('给我一个链接，我帮你设置好哦～');
+            hush[key] = setUrl;
+            x.stopPropagation()//阻止点击事件冒泡
+            console.log(setUrl);
+        })
+        //点击跳转事件
+        $(kbds).on('click',function(y){
+            let index = y.currentTarget.className
+            console.dir(index);
+            let url = hush[index];
+            window.open('http://'+url,'_blank');
+        })
+        
     }
+}
+//监听键盘事件
+document.onkeypress = function(x){
+        var url = hush[x.key];
+        window.open('http://'+ url,'_blank');
 }

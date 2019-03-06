@@ -1,0 +1,86 @@
+*{margin: 0;padding: 0;box-sizing: border-box;}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
+    background: url(./bg.jpg),no-repeat;
+    background-size: cover;
+}
+header {
+    width: 70%;
+    height: 100px;
+    position: fixed;
+    top: 100px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+header > span {
+    line-height: 100px;
+    color: white;
+    font-size: 20px;
+}
+header >img{
+    width: 100px;
+}
+
+.flex {
+    width: 70%;
+    height: 300px;
+    margin-top: 240px;
+    background: rgba(221, 221, 221, 0.233);
+    padding-top: 25px;
+    border-radius: 10px;
+}
+
+
+.main > div {
+    display: flex;
+    justify-content: center;
+}
+.main > div > kbd{
+    border-radius: 6px;
+    margin: 4px 10px;
+    padding: 22px 30px;
+    font-size: 24px;
+    color: white;
+    background: #000000;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgb(95, 94, 94);
+    position: relative;
+}
+.main > div > kbd:hover{
+    cursor: pointer;
+}
+button{
+    font-size: 8px;
+    display: none;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+kbd:hover > button{
+    display: block;
+}
+
+.main > div > kbd > img{
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+}
+
+.circle {
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    background: white;
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+}
+
+
