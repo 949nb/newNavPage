@@ -28,7 +28,6 @@ for(i=0;i<keys.length;i++){//初始化html
         var kbds = document.createElement('kbd');
         div1.appendChild(kbds);
         kbds.textContent = index[b];
-        
     }
 }
 document.onkeypress = function(x){//监听键盘的事件
